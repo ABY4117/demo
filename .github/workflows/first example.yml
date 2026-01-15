@@ -9,11 +9,17 @@ jobs:
         - name: Action
           uses: actions/checkout@v6
            
-        - name: welcome
-          run: echo "my first project"
+        - name: List and read files
+          run: |
+           echo "my first project"
+           ls -ltra
+           cat README.md
 
-        - name: list the files
-          run: ls
+        - name: ASCII Art work
+          run: cowsay -f dragon "hai mone hmm" >> dragon.txt
 
-        - name: read the file
-          run: cat README.md
+        # - name: list the files
+        #   run: ls
+
+        # - name: read the file
+        #   run: cat README.md
