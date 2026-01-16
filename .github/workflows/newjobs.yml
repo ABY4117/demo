@@ -1,4 +1,4 @@
-name: Build Test Deploy with Artifacts
+name: Build Test Deploy Demo
 
 on:
   push:
@@ -10,19 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build application
+      - name: Build step
         run: |
           mkdir build
-          echo "Hello from Build Job" > build/app.txt
+          echo "Build completed successfully" > build/output.txt
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build-output
-          path: app.txt
+          name: build-files
+          path: build/
 
   test:
     runs-on: ubuntu-latest
@@ -32,12 +32,12 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
-          name: build-output
-          path: app.txt
-      - name: Test application
+          name: build-files
+
+      - name: Test step
         run: |
-          cat app.txt
-          echo "Tests passed"
+          cat output.txt
+          echo "Tests passed successfully"
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,9 +47,9 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
-          name: build-output
-          path:path: app.txt
-      - name: Deploy application
+          name: build-files
+
+      - name: Deploy step
         run: |
-          cat app.txt
+          cat output.txt
           echo "Deploying application..."
