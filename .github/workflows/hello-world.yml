@@ -1,11 +1,12 @@
-name: Hello World
+name: Learning workflow #providing name to a new workflow
 
-on: push
-
-jobs:
-  hello-job:
-    runs-on: ubuntu-latest
-
-    steps: 
-      - name: Echo text
-        run: echo "Hello, world!"
+on: 
+   push #when will be the github action executed
+  
+jobs: 
+  demo:
+    steps:
+      -name: demo
+       run: |
+         mkdir: hello
+         echo "new demo" > output.txt
