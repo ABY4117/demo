@@ -9,4 +9,4 @@ jobs:
       -name: demo
        run: |
          mkdir: hello
-         echo "new demo" > output.txt
+         echo "new demo" > hello/output.txt
