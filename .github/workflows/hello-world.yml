@@ -42,6 +42,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-files
+      
+      - name: environment variable
+        run: |
+          echo "another format is" ${{secrets.variable}}
 
       - name: Test step
         run: |
