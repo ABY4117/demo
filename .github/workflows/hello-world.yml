@@ -13,3 +13,7 @@ jobs:
       - name: demo
         run: |
          echo "new demo"
+
+      - name: ls 
+        run: ls -ldr
+       
