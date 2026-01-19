@@ -1,6 +1,6 @@
 name: Build Test Deploy Demo
-  env: 
-    variable: password
+env: 
+  variable: password
 on:
   push:
     branches:
