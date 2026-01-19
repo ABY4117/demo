@@ -15,6 +15,12 @@ jobs:
         run: |
           mkdir build
           echo "build completed successfully" > build/output.text
+
+      - name: artifact upload
+        uses: actions/upload-artifact@v4
+        with: 
+          name: build files
+          path: build/
   
   test:
     runs-on: ubuntu-latest
