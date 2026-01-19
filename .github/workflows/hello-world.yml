@@ -6,7 +6,10 @@ on:
 jobs: 
   demo:
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       -name: demo
        run: |
          mkdir: hello
-         echo "new demo" > demo/output.txt
+         echo "new demo" > hello/output.txt
