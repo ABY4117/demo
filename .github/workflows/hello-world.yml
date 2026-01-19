@@ -1,5 +1,6 @@
 name: Build Test Deploy Demo
-
+  env: 
+    variable: password
 on:
   push:
     branches:
@@ -14,8 +15,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: environment variable
-        env: 
-          variable: password
         run: |
           echo "environment variable is" $variable
           echo "another format is" ${{env.variable}}
@@ -24,6 +23,10 @@ jobs:
         run: |
           mkdir build
           echo "Build completed successfully" > build/output.txt
+      - name: environment variable
+        run: |
+          echo "environment variable is" $variable
+          echo "another format is" ${{env.variable}}
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
