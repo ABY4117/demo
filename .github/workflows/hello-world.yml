@@ -11,5 +11,4 @@ jobs:
 
       -name: demo
        run: |
-         mkdir: hello
-         echo "new demo" > hello/output.txt
+         echo "new demo"
