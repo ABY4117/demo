@@ -1,14 +1,15 @@
 name: Learning workflow #providing name to a new workflow
 
 on: 
-   push #when will be the github action executed
+   push: #when will be the github action executed
   
 jobs: 
   demo:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      -name: demo
-       run: |
+      - name: demo
+        run: |
          echo "new demo"
