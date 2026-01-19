@@ -1,22 +1,33 @@
-name: Learning workflow #providing name to a new workflow
+name: build test deploy jobs
 
-on: 
-   push: #when will be the github action executed da
-  
-jobs: 
-  demo:
+on: push
+
+jobs:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
+    
+    
+    steps: 
+      - name: checkout
         uses: actions/checkout@v4
-
-      - name: demo
+      
+      - name: build step
         run: |
-         echo "new demo"
+          mkdir build
+          echo "build completed successfully" > build/output.text
+  
+  test:
+    runs-on: ubuntu-latest
 
-      - name: ls 
-        run: ls -ldr
+    steps: 
+      - name: testing step
+        run: |
+          echo "test completed success"
 
-      - name: read files
-        run: cat README.md
-       
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: deploy step
+        run: |
+          echo "deploy completed"
