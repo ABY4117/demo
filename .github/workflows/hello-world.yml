@@ -33,8 +33,9 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    needs: build
 
     steps: 
-      - name: deploy step
-        run: |
-          echo "deploy completed"
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-files
