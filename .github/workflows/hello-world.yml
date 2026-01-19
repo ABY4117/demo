@@ -1,6 +1,6 @@
 name: Build Test Deploy Demos
-env: 
-  variable: password
+# env: 
+#   variable: password
 on:
   push:
     branches:
@@ -16,8 +16,7 @@ jobs:
 
       - name: environment variable
         run: |
-          echo "environment variable is" $variable
-          echo "another format is" ${{env.variable}}
+          echo "another format is" ${{secrets.variable}}
 
       - name: Build step
         run: |
