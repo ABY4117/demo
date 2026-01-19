@@ -1,27 +1,59 @@
-name: build test deploy     #workflow name
+name: Build Test Deploy Demo
 
-on: push                   #github actions
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  name: build
-  runs-on: ubuntu-linux
-  
-  steps:
-    - name: checkout
-      uses: actions/checkout@v4
+  build:
+    runs-on: ubuntu-latest
 
-    - name: environment
-      env: 
-        password: demo
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: build code 
-      run: |
-       mkdir: file
-       echo "demo code"
+      - name: environment variable
+        env: 
+          variable: password
 
-    - name: build artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: build-artifact
-        path: file/
+      - name: Build step
+        run: |
+          mkdir build
+          echo "Build completed successfully" > build/output.txt
 
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: build/
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-files
+
+      - name: Test step
+        run: |
+          cat output.txt
+          echo "Tests passed successfully"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-files
+
+      - name: Deploy step
+        run: |
+          cat output.txt
+          echo "Deploying application..."
