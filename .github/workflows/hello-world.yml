@@ -16,6 +16,7 @@ jobs:
       - name: environment variable
         env: 
           variable: password
+        run: echo "environment variable is" $variable
 
       - name: Build step
         run: |
