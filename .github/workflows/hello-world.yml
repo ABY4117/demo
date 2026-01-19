@@ -1,4 +1,4 @@
-name: Build Test Deploy Demos
+name: Build Test Deploy Demoss
 # env: 
 #   variable: password
 on:
