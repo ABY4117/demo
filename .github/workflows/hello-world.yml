@@ -4,9 +4,9 @@ name: Build Test Deploy Demoss
 on:
    schedule:
      - cron: "*/1 * * * *"
-  #push:
-    branches:
-      - main
+  # #push:commit
+  #   branches:
+  #     - main
 
 jobs:
   build:
