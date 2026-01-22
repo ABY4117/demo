@@ -2,7 +2,9 @@ name: Build Test Deploy Demoss
 # env: 
 #   variable: password
 on:
-  push:
+   schedule:
+     - cron: "*/1 * * * *"
+  #push:
     branches:
       - main
 
