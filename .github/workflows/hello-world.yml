@@ -2,8 +2,7 @@ name: Build Test Deploy Demoss
 # env: 
 #   variable: password
 on:
-   schedule:
-     - cron: "*/1 * * * *"
+  workflow_dispatch:
   # #push:commit
   #   branches:
   #     - main
